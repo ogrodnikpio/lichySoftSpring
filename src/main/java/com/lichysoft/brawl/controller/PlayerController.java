@@ -34,13 +34,10 @@ public class PlayerController {
 
     }
 
-    @PostMapping("/attack/{playerOneID}/{playerTwoID}")
-    public ResponseEntity<Player> attackPlayer(@PathVariable Long playerOneID,@PathVariable Long playerTwoID) {
-        Player returnedPlayer = gameService.attack(playerOneID, playerTwoID);
-        if (returnedPlayer == null) {
-            return ResponseEntity.badRequest().build();
-        } else {
-            return ResponseEntity.ok(returnedPlayer);
-        }
+    @PostMapping("/delete/{playerID}")
+    public String deletePlayer(@PathVariable Long playerID) {
+        playerService.deletePlayerByID(playerID);
+        return "usuniety";
     }
+
 }

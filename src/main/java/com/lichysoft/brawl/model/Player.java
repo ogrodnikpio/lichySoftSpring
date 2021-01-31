@@ -18,6 +18,7 @@ public class Player {
     private int minAttack;
     private int maxAttack;
 
+
     public Player() {}
 
     public  Player(String name, int hp, int mp, int mina, int maxa) {
@@ -27,6 +28,43 @@ public class Player {
         this.minAttack = mina;
         this.maxAttack = maxa;
     }
+
+    public Player(String klasa) throws Exception {
+        switch(klasa) {
+            case "Hunter":
+                this.nickName = "Hunter";
+                this.health = 1000;
+                this.manaPoints = 100;
+                this.minAttack = 100;
+                this.maxAttack = 350;
+                break;
+            case "Warrior":
+                this.nickName = "Warrior";
+                this.health = 1500;
+                this.manaPoints = 80;
+                this.minAttack = 150;
+                this.maxAttack = 250;
+                break;
+            case "Mage":
+                this.nickName = "Mage";
+                this.health = 700;
+                this.manaPoints = 150;
+                this.minAttack = 200;
+                this.maxAttack = 400;
+                break;
+            case "Rogue":
+                this.nickName = "Rogue";
+                this.health = 850;
+                this.manaPoints = 100;
+                this.minAttack = 300;
+                this.maxAttack = 350;
+                break;
+            default:
+                throw new Exception();
+
+        }
+    }
+
     public Long getID() {
         return ID;
     }
@@ -77,13 +115,13 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "ID=" + ID +
-                ", nickName='" + nickName + '\'' +
-                ", health=" + health +
-                ", manaPoints=" + manaPoints +
-                ", minAttack=" + minAttack +
-                ", maxAttack=" + maxAttack +
+        return "{" +
+                "\"ID:\"" + ID +
+                ", \"nickName\":'" + nickName + '\'' +
+                ", \"health\":" + health +
+                ", \"manaPoints\":" + manaPoints +
+                ", \"minAttack\":" + minAttack +
+                ", \"maxAttack\":" + maxAttack +
                 '}';
     }
 }
